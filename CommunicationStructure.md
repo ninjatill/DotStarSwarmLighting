@@ -1,5 +1,5 @@
-# Command Structure
-Commands are send to the DS swarm (DSS) devices using JSON. The JSON object has 3 distinct containers that are used by the DSS: target, command and parameters. One JSON string could have multiple targets, each containing multiple commands, each containing multiple parameters. The JSON format is:
+# Communication Structure
+Messages are send to the DS swarm (DSS) devices using JSON. The JSON object has 3 distinct containers that are used by the DSS: root, target, and command. Each command contains parameters which govern device behavior or animations. One JSON string could have multiple targets, each containing multiple commands, each containing multiple parameters. The JSON format is:
 
 Basic single-command:
 ```
