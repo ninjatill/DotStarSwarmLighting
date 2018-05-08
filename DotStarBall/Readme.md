@@ -19,9 +19,19 @@ The first object designed for this swarm ecosystem is the DotStar Ball (DSB). Wh
 - 6 2-pin Power Connectors ($10)
 - Multi-colored Hookup Wire (size appropriately and consider outdoor exposure when selecting)
 
+## Roadmap (To Do Features) (In Order of Priority)
+- Add firmware features (sleep, 
+- Finalize designs for electronics custom PCB, electronics housing and hanging bracket.
+- Investigate using hardware timers to control animation processing intervals.
+- Add temperature monitoring/fan control for the PSU.
+- Add support for external hardware triggers.
+- Add environmental monitoring hardware making each light a small weather station.
+- Add support for [DMX-512](https://en.wikipedia.org/wiki/DMX512).
+- Add support for [Light-O-Rama](http://www1.lightorama.com/) controllers.
+
 ## Similar Designs
 I mostly had the support structure designed and fabricated prior to doing any kind of search for a similar idea or concept. I did find a few similar designs out there but none that fit my exact requirements. Most were stand-alone objects and higher in cost to fabricate. Here's a brief comparison:
-- [Spherical LED Matrix](http://www.instructables.com/id/Spherical-LED-Matrix-Sphere-Shaped-LED-Screen-From/) This project is most closely related to what I'm trying to do. The maker used a metal support structure and oriented the pixel strips in a horizontal manner (which I found to be an unfavorable design.) The maker hides the non-uniform LED positioning by enclosing the entire structure in a translucent ball.
+- [Spherical LED Matrix](http://www.instructables.com/id/Spherical-LED-Matrix-Sphere-Shaped-LED-Screen-From/) This project is most closely related to what I'm trying to do. The maker used a metal support structure and oriented the pixel strips in a horizontal manner (which I found to be an unfavorable design.) The maker hides the non-uniform LED positioning by enclosing the entire structure in a translucent shell.
   - This design differs from the DSB in that the DSB is smaller, lighter, and WiFi enabled. Both projects are similarly (proportionally) priced. Additionally, this design uses specialized hardware and uses non-wireless communication protocols/hardware such as USB or DMX-512. It is not addressable in a swarm but could be modified to do so.
 - [Giant LED Disco Ball](https://blog.hackster.io/get-the-party-started-with-this-giant-led-disco-ball-cd776451e3c0) This is a well designed project that used custom-printed PCBs to create a geodesic sphere. Each PCB housed a few Neopixels. The design is meant to be mobile and run off of large LiPo batteries.
   - This design differs from the DSB in that the DSB is smaller, lighter, cheaper to fabricate and WiFi enabled. It is not addressable in a swarm but could be modified to do so.
@@ -33,16 +43,16 @@ I mostly had the support structure designed and fabricated prior to doing any ki
   - All these projects look terribly expensive and out of reach for the DIY community.
 
 ## Sequences/Modes/Animations
-A sequence is a list of commands that are executed autonomously. A command can be mode change, settings update or repeater. A sequence can be sent as a single self-contained message or it can be sent as a multi-part message.
+Read the Communication Structure document for a better understanding of Sequences, Commands, Command Elements, and Parameters.
 
-A mode and animation are virtualy synonomous. However, a mode can specify some non-animation commands such as "standby". The standby mode runs the "All Off" animation and then waits for another mode change. Standby can also specify a sleep period to put the Particle Photon into a lower power mode.
+The following section documents the animations available on the DSB. A mode and animation are virtualy synonomous. However, a mode can specify some non-animation commands such as "standby". The standby mode runs the "All Off" animation and then waits for another mode change. Standby can also specify a sleep period to put the Particle Photon into a lower power mode.
 
 Animations are pre-built for the light strip. Each animation is governed by the list of parameters sent in the mode command. See this reference for a list of the parameter types. An animation can be as simple as turning on/off a single pixel. But an animation can be complex such as a pulse (fade from a start color to an end color and then back to the start color).
 
 The "M" mode command can trigger the following animations:
 
 0. Standby
-   - Runs the All Off animation once then waits for incomming commands.
+   - Runs the All Off animation once then waits for incomming commands. If a duration is specified, the Photon will sleep for the specified duration.
 1. All Off
    - Turns all LEDS repeatedly.
 2. Object On
@@ -81,21 +91,8 @@ The "M" mode command can trigger the following animations:
 14. Flash
     - Flash starts with a solid color and then shows a at full brightness for a very brief amount of time before returning to the original color.
     
-    
-### Command Examples
-- {"A--":{"M":{"M":2,"U":2500,"T":1,"C":[255,255,0],"R":29,"A":1}}}
-  - Blinks blue 30 times. The off period is 2.5 seconds. The on period is 5 seconds. Total duration is approx. 90 seconds.
-  
-  
-To Add:
-Pulse
-CW Fill
-CCW Fill
-Twinkle
-VSpin
 
-Sequences examples
-    
+
     
 ## Particle Photon Demonstration
 Makers who do not want to build the DSB may still benefit from some of the demonstrated methods on the Particle Photon platform including:
@@ -103,7 +100,8 @@ Makers who do not want to build the DSB may still benefit from some of the demon
 - receiving and parsing variables sent via JSON where the JSON payload contains a varying number of variables,
 - using a single Particle cloud subscription to address multiple devices, filtering commands by a target address,
 - using the built in Log functionality, sending logs to an external service such as papertrailapp.com,
-- using classes for object-oriented programming on IoT devices.
+- using classes for object-oriented programming on IoT devices,
+- using both UDP and particle cloud functions to receive commands.
     
     
 
