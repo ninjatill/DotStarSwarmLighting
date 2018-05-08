@@ -45,14 +45,14 @@ I mostly had the support structure designed and fabricated prior to doing any ki
 ## Sequences/Modes/Animations
 Read the Communication Structure document for a better understanding of Sequences, Commands, Command Elements, and Parameters.
 
-The following section documents the animations available on the DSB. A mode and animation are virtualy synonomous. However, a mode can specify some non-animation commands such as "standby". The standby mode runs the "All Off" animation and then waits for another mode change. Standby can also specify a sleep period to put the Particle Photon into a lower power mode.
+The following section documents the animations available on the DSB. A mode and animation are virtualy synonomous. However, a mode can specify some non-animation commands such as "standby".
 
 Animations are pre-built for the light strip. Each animation is governed by the list of parameters sent in the mode command. See this reference for a list of the parameter types. An animation can be as simple as turning on/off a single pixel. But an animation can be complex such as a pulse (fade from a start color to an end color and then back to the start color).
 
 The "M" mode command can trigger the following animations:
 
 0. Standby
-   - Runs the All Off animation once then waits for incomming commands. If a duration is specified, the Photon will sleep for the specified duration.
+   - Runs the All Off animation once then waits for incomming commands. ~~If a duration is specified, the Photon will sleep for the specified duration.~~ (consider puttin sleep on roadmap).
 1. All Off
    - Turns all LEDS repeatedly.
 2. Object On
