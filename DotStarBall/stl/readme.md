@@ -24,4 +24,12 @@ All components were designed in [TinkerCad](https://www.tinkercad.com/#/) and pr
    - Recommended Print settings: .2mm layers, 4 solid layers top and bottom, 2 perimeters, 25% infill or more, supports on with "Support on Build plate only" enabled. Must be printed so that the curved edge (side of arm) is touching the build plate (it will look like a "C" when viewed from above.)
 3. **LED Clips**
    - There are 2 versions of the clip: a 3mm wide version (plain) and a wider 5mm version with indents to keep a 2mm zip tie centered on the clip (zip style).
+   
+**_Not Ready for Posting_**
+
+4. **Electronics Housing**
+   - The electronics are contained in an enclosure bolted to the bottom of the DSB.
+   
+5. **Hanging Bracket**
+   - The DSB is desined to be hung from a branch. The hanging bracket bolts to the top of the unit without any penetrations into the PSU cylinder internal cavity. The bracket may have to be constructed from a sturdier material such as aluminum.
     
