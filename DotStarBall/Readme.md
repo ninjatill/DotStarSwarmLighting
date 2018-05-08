@@ -107,61 +107,6 @@ Makers who do not want to build the DSB may still benefit from some of the demon
     
     
 
-### Parameters Explained
-Parameter list is in format: 
-- `[Param Char] - [Param Name] - [Param Datatype]`
-  - Animation description.
-  - Important notes. (optional)
-  - Values: (optional)
-  - Example:
-
-#### Required Parameters
-These parameters must always be specified. The mode will not display if they are omitted.
-- "D" - Duration - unsigned long
-  - Secifies the duration of the animation in miliseconds.
-  - Example: `"U":5000` for 5000 miliseconds (5 seconds) total duration of the animation.
-- "M" - Mode ID Number = uint8_t
-  - Specifies the mode id number and associated animation to process.
-  - Example `"M":11` for mode number 11 (fade).
-- "T" - Steps - unsigned long
-  - Specifies the number of steps in the animation and must be greater than 0.
-  - Example `"T":5` for 5 total steps in animation.
-  
-Note: Duration (D) is divided by Steps (T) to calculate the refresh rate of the animation. For example, if you specify a duration of 1000 (1 second) and 10 steps, the LED matrix will update every 100 miliseconds (1000/10 = 100). The calculation is approximate because there is an estimated overhead of approximately 12 miliseconds between each refresh. The actual duration may be +/- several miliseconds. 
-
-#### Optional Parameters
-- "A" - Advance Color On - int
-  - Specifies when to advance to the next color in the color array.
-  - Values: 1 = on step advance, 2 = repeat advance.
-- "C" - Color Array - Array of uint32_t
-  - An array of colors to use. Colors are 32-bit integers but only the right-most 3 bytes are used to specify single-byte Red, Green and Blue values. It is best to convert RGB hexidecimal values to base10 decimals. For example, 0xFF0000 (red in hex) = 16711680 (red in base10).
-  - To step through the color array, you must specify the "A" parameter. If no colors are specified, black (off) is assumed.
-  - Example: `"C":[0,255,16777215]` for Black (off), Blue, White
-- "D" - Start Delay - unsigned long
-  - Number of miliseconds to delay before starting the animation. Delay can be used to coordinate "moving sequences" across members of the swarm.
-  - Example: `"D":20` for a 20 milisecond delay before starting command.
-- "H" - Width/Tail - int
-  - Specifies the width of an animation. Has different meaning depending on the animation; see animation description.
-  - Example: `"H":5`
-- "I" - Direction of Animation - uint8_t
-  - Used for directional animations (spin, fill, etc.) to specify the direction of advance (when viewed from above). 
-  - Values: 0 = CW/Up, 1 = CCW/Down, 2 = CW reverse on Step, 3 = CCW reverse on Step, 4 = CW reverse on Repeat, 5 = CCW reverse on Repeat, ... 254 = Randomize
-  - Example: `"I":1` for Counter-Clockwise/Down direction.
-- "O" - Object Array - Array of Strings
-  - An object can be a column (C) or row (R) of pixels or a single pixel (P). To explicity address all pixels, use "A" with any index (i.e. "A0"). String format should be `[char for obj type][uint_16 for obj index]`. The object index is zero-based.
-  - Example: `O:["C20","R8","P55"]` for Column 20, Row 8 and Pixel 55.
-- "R" - Time to Repeat - int
-  - Number of times to repeat the mode/animation. Use the max negative value of -2,147,483,648 for indefinite repeat. Use other negative values to specify a random repeat value.
-  - Example: `"R":50` for reapeat 50 times. Note, this will display the mode 51 times since he first run does not count towards the repeat count.
-  - Example: `"R":-500` to repeat a random number of times up to 500.
-- "W" - Color Wheel Speed - uint8_t
-  - If specified, the animiation will use a color wheel algorithm to step through the colors of the rainbow. The value governs the speed of the color transitions. Lower values will change slower than larger values.
-  - Example: `"W":3` for color wheel enabled with a +/- 3-bit change on each color wheel advance.
-- "X" - Wait for Execution - bool
-  - Forces the mode to wait for an "execution" command before running the animation. This is designed to help coordinate timing / processing delays amongst the swarm.
-  - Example: `"X":true` to set the wait for execution flag.
-
-
 
 
 
