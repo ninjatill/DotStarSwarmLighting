@@ -2,13 +2,11 @@
 The first object designed for this swarm ecosystem is the DotStar Ball (DSB). When I started designing this object, I used the some of these criteria:
 - had to be large enough to have a visual impact hanging on a large tree branch,
 - had to be (relatively) low cost since I had to make many of them,
-- has to receive commands external commands and display animations from that input,
+- has to receive external commands and display animations from that input,
 - has to be addressable individually or in groups.
 
-For more detail, see the "Design Walkthrough" section.
-
 ## Design Constraints
-- Anything I create has to live outdoors. So it has to be designed to handle Northeastern US weather (snow, rain, high-winds, etc.)
+- Anything I create has to live outdoors. It has to be designed to operate in Northeastern US weather (snow, rain, high-winds, etc.)
 - I knew I would be using DotStar LED strips. I used them for a previous project and found them easy to use and program. These strips optionally come with a silicone jacket with an IP67 rating which satisfies the weather issue. To keeps costs low and with a rough guestimate of the size of the sphere, I chose the version with 60 pixels/meter which would give me a pixel length of 16.67mm.
 - I have a 3D printer so I knew that I would most-likely design and print a custom support structure to keep it light and low cost. I have an original Prusa i3 Mk2 printer with maximum print dimensions 250x200x180mm.
 - I wanted the electronics to be accessible without completely disassembling the ball. Also, for best WiFi reception, the electronics should be located on the under-side of the ball.
@@ -24,18 +22,24 @@ For more detail, see the "Design Walkthrough" section.
 ## Similar Designs
 I mostly had the support structure designed and fabricated prior to doing any kind of search for a similar idea or concept. I did find a few similar designs out there but none that fit my exact requirements. Most were stand-alone objects and higher in cost to fabricate. Here's a brief comparison:
 - [Spherical LED Matrix](http://www.instructables.com/id/Spherical-LED-Matrix-Sphere-Shaped-LED-Screen-From/) This project is most closely related to what I'm trying to do. The maker used a metal support structure and oriented the pixel strips in a horizontal manner (which I found to be an unfavorable design.) The maker hides the non-uniform LED positioning by enclosing the entire structure in a translucent ball.
-  - This design differs from the DSB in that the DSB is smaller, lighter, and probably cheaper to fabricate and WiFi enabled. Additionaly, this design uses specialized hardware and uses serial-type communication. It is not addressable in a swarm but could be modified to do so.
-- [Neopixel LED EyeBall](https://www.hackster.io/H0meMadeGarbage/neopixel-led-eyeball-8da098)
-  - This is just a few Neopixels taped to a half-sphere meant to be carried around.
+  - This design differs from the DSB in that the DSB is smaller, lighter, and WiFi enabled. Both projects are similarly (proportionally) priced. Additionally, this design uses specialized hardware and uses non-wireless communication protocols/hardware such as USB or DMX-512. It is not addressable in a swarm but could be modified to do so.
 - [Giant LED Disco Ball](https://blog.hackster.io/get-the-party-started-with-this-giant-led-disco-ball-cd776451e3c0) This is a well designed project that used custom-printed PCBs to create a geodesic sphere. Each PCB housed a few Neopixels. The design is meant to be mobile and run off of large LiPo batteries.
   - This design differs from the DSB in that the DSB is smaller, lighter, cheaper to fabricate and WiFi enabled. It is not addressable in a swarm but could be modified to do so.
-- Hackster.io and Youtube.com have some POV-type cylindrical and spherical displays such as [this](https://www.hackster.io/hanoba_DIY/pov-cylinder-with-arduino-due-7016d5), [this](https://www.hackster.io/wslaton/easy-pov-display-9f4a88), [this](https://www.youtube.com/watch?v=sEY6N4HkSDM), [this](https://www.youtube.com/watch?v=-1Qe17flj0U), or [this](https://www.youtube.com/watch?v=Pf4IyXFTvT4). [This design](https://www.youtube.com/watch?v=_hprsvsPpEI) was a interesting take on the POV display but POV would not be reliable in the same environment as the DSB.
-  - POV displays would not be practical to hang in a tree due to the moving parts and exposed electoncis. The slip joint would be prone to water infiltration.
-- Youtube.com has some commercial displays that are similar such as [this](https://www.youtube.com/watch?v=te4uvfAzgXY), [this](https://www.youtube.com/watch?v=v2Eh44Rp4_Q), [this](https://www.youtube.com/watch?v=sEY6N4HkSDM), [this](https://www.youtube.com/watch?v=mB8hct78ETk).
+- [Neopixel LED EyeBall](https://www.hackster.io/H0meMadeGarbage/neopixel-led-eyeball-8da098)
+  - This is just a few Neopixels taped to a half-sphere meant to be carried around.
+- Hackster.io and Youtube.com have some DIY POV-type cylindrical and spherical displays such as [this](https://www.hackster.io/hanoba_DIY/pov-cylinder-with-arduino-due-7016d5), [this](https://www.hackster.io/wslaton/easy-pov-display-9f4a88), [this](https://www.youtube.com/watch?v=sEY6N4HkSDM), [this](https://www.youtube.com/watch?v=-1Qe17flj0U), or [this](https://www.youtube.com/watch?v=Pf4IyXFTvT4). [This design](https://www.youtube.com/watch?v=_hprsvsPpEI) was a interesting take on the POV display but POV would not be reliable in the same environment as the DSB.
+  - POV displays would not be practical to hang in a tree due to the moving parts and exposed electronics. Any slip joint would be prone to water infiltration.
+- Youtube.com has some commercial displays that are similar such as [this](https://www.youtube.com/watch?v=te4uvfAzgXY), [this](https://www.youtube.com/watch?v=v2Eh44Rp4_Q), [this](https://www.youtube.com/watch?v=sEY6N4HkSDM), or [this](https://www.youtube.com/watch?v=mB8hct78ETk).
   - All these projects look terribly expensive and out of reach for the DIY community.
 
-## Animations/Modes
-Animations are setup and run based on incoming commands as outlined in the main project pages. The "M" mode command can trigger the following animations:
+## Sequences/Modes/Animations
+A sequence is a list of commands that are executed autonomously. A command can be mode change, settings update or repeater. A sequence can be sent as a single self-contained message or it can be sent as a multi-part message.
+
+A mode and animation are virtualy synonomous. However, a mode can specify some non-animation commands such as "standby". The standby mode runs the "All Off" animation and then waits for another mode change. Standby can also specify a sleep period to put the Particle Photon into a lower power mode.
+
+Animations are pre-built for the light strip. Each animation is governed by the list of parameters sent in the mode command. See this reference for a list of the parameter types. An animation can be as simple as turning on/off a single pixel. But an animation can be complex such as a pulse (fade from a start color to an end color and then back to the start color).
+
+The "M" mode command can trigger the following animations:
 
 0. Standby
    - Runs the All Off animation once then waits for incomming commands.
@@ -50,7 +54,7 @@ Animations are setup and run based on incoming commands as outlined in the main 
     - Fades from one color to the next. 
     - The colors change slightly between the start and end color on each step advance. The amount of change is based on the number of steps (T) specified and the start and end colors. 
     - If repeat (R) is specified, on each repeat, the next 2 color in the color array will be used. If there are more repeats than colors, the color array index will wrap around.
-      - For example, using this color array "C":[0,255,65280,16711680]
+      - For example, using this color array `"C":[0,255,65280,16711680]`
         1. On the first run the fade will go from 0 (black/off) to 255 (blue). 
         2. On the first repeat (2nd run), the fade will go from 255 (blue) to 65280 (green). 
         3. On the 2nd repeat (3rd run) the fade will go from 65280 (green) to 16711680 (red). 
@@ -72,7 +76,34 @@ Animations are setup and run based on incoming commands as outlined in the main 
     - Optional Parameters: A, I, H
     
 13. Spin
-    - Spins either vertically or horizontally. A "spin" is a sequential lighting of objects in a particular direction. The Vertical spin is just a wrapper around the fill mode. Spinning a single pixel (or group of pixels) or spinning horizontaly is more difficult.
+    - Spins either vertically or horizontally. A "spin" is a sequential lighting of objects in a particular direction. The Vertical spin is just a wrapper around the fill mode with a width. Spinning a single pixel (or group of pixels) or spinning horizontally (row spin) requires a custom routine.
+    
+14. Flash
+    - Flash starts with a solid color and then shows a at full brightness for a very brief amount of time before returning to the original color.
+    
+    
+### Command Examples
+- {"A--":{"M":{"M":2,"U":2500,"T":1,"C":[255,255,0],"R":29,"A":1}}}
+  - Blinks blue 30 times. The off period is 2.5 seconds. The on period is 5 seconds. Total duration is approx. 90 seconds.
+  
+  
+To Add:
+Pulse
+CW Fill
+CCW Fill
+Twinkle
+VSpin
+
+Sequences examples
+    
+    
+## Particle Photon Demonstration
+Makers who do not want to build the DSB may still benefit from some of the demonstrated methods on the Particle Photon platform including:
+- parsing JSON strings on the IoT hardware,
+- receiving and parsing variables sent via JSON where the JSON payload contains a varying number of variables,
+- using a single Particle cloud subscription to address multiple devices, filtering commands by a target address,
+- using the built in Log functionality, sending logs to an external service such as papertrailapp.com,
+- using classes for object-oriented programming on IoT devices.
     
     
 
@@ -96,7 +127,7 @@ These parameters must always be specified. The mode will not display if they are
   - Specifies the number of steps in the animation and must be greater than 0.
   - Example `"T":5` for 5 total steps in animation.
   
-Note: Duration (D) is divided by Steps (T) to calculate the refresh rate of the animation. For example, if you specify a duration of 1000 (1 second) and 10 steps, the LED matrix will update every 100 miliseconds (1000/10 = 100).
+Note: Duration (D) is divided by Steps (T) to calculate the refresh rate of the animation. For example, if you specify a duration of 1000 (1 second) and 10 steps, the LED matrix will update every 100 miliseconds (1000/10 = 100). The calculation is approximate because there is an estimated overhead of approximately 12 miliseconds between each refresh. The actual duration may be +/- several miliseconds. 
 
 #### Optional Parameters
 - "A" - Advance Color On - int
