@@ -1,4 +1,4 @@
-# DotStarSwarmLighting
+# DotStar Swarm Lighting
 Lighting objects made with "DotStar" LEDs which communicate with each other in a swarm.
 
 ## Concept and Background
