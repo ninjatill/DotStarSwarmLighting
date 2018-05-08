@@ -17,6 +17,6 @@ There are numerous components to the project including:
 ## Elements with Documentation
 
 - [Communication Structure](/CommunicationStructure.md)
-- [The DotStar Ball](/DotStarBall/readme.md)
+- [The DotStar Ball](/DotStarBall/Readme.md)
 
 
