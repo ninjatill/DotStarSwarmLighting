@@ -49,3 +49,10 @@ Note: After printing the top cylinder, inspect the top-most solid surface for wa
 4. Align the top/mid cylinder assembly with the bottom cylinder (using the exterior alignment markings). Fasten the top/mid cylinder assembly to the bottom cylinder with #6 1/2" stainless steel screws. You may want to apply a small amount of caulk where the cylinders touch as well as in the screw holes to prevent water infiltration.
 5. Affix the arms to the top and bottom cylinders with #6 1/2" stainless steel screws. One method to ensure proper alignment is to install 2 arms directly overtop of the cylinder alignment marks. Next, install 2 arms at 90° from the first 2. Then, work on one quadrant at a time first affixing the top screws for all 5 arms, then turning the ball over and affixing the bottom screws for all five arms; repeat for each quadrant. You may want to apply a small amount of caulk in the top screw holes as added protection from water infiltration.
 
+
+## Images
+
+### Early Prototypes
+
+![Early Prototype - DSB Cylinder Exterior - in ABS](/DotStarBall/assets/DSB_EarlyPrototype_ABS_Exterior_500px.jpg)
+![Early Prototype - DSB Cylinder Interior - in ABS](/DotStarBall/assets/DSB_EarlyPrototype_ABS_Interior_500px.jpg)
