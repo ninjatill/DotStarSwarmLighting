@@ -116,3 +116,19 @@ I looked for a power source that could handle the 552 LEDs and fit within a 250m
 
 After cutting the LED reels into 23-pixel columns, I soldered them all together with hook-up wire incorporating 6 power taps (one tap every 4 columns.) The strips are wired in a daisy chain where the dataflow is "up" on the first strip and then "down" on the second strip and alternates in that manner for the entire length of the chain. To attach the strips to the support structure, I anticipated simply using zip ties (they are low-cost, expendable, and they work). However, the zip tie crushed the silicone jacket excessively and I anticipated issues with the silicone breaking or leaking over time. So I went back to the 3D printer and created hundreds of clips using crystal clear PETG (to be light transparent). The clips held the silicone snugly to the support structure. The larger of the 2 clips I designed had detents so that you could put a zip tie around both the support structure and clip for a more snug fit without crushing the silicone jacket.
 
+## Assembly
+1. Start by assembling the power supply. Install the main power feed and the LED strip power connections. You may want to run a functions check prior to encasing the power supply in the support structure; hookup the power supply, LED strip and electronics and run through some animations.
+2. Assemble the 3D printed objects. See the [readme](/DotStarBall/stl/readme.me) in the stl folder for a detailed write up on just the 3D printed components.
+3. Solder the LED strip together.
+4. Affix the LED strip to the support structure using clips. Start with the first strip and work your way around the ball.
+5. Connect the LED strip power connections to the power supply.
+6. Assemble the electronics PCB to the electronics housing.
+7. Connect the electronics PCB to the LED strip 4-pin JST connector.
+8. Affix the electronics housing to the underside of the support structure. Take care to ensure all power cables are tucked up into the ball and do not put excess force on any electronic components.
+9. Affix the hanging bracket to the top of the ball.
+
+## Installation In a Lighting Display
+Note: For complex animations, the DSB will most likely be driven by a controller using UDP networking. Because UDP does not guarantee delivery of packets (it's more of a "best effort" service), you must ensure the DSB is connected to a reliable and "quiet" network (minimal UDP/multicast/broadcast traffic). To ensure the best reliability, provid a dedicated WiFi access point or router and place all DotStar swarm components in a private VLAN. In order for DSB components to communicate with each other, they must all be on the same network subnet. In order to use Particle Cloud communication, all DSB components must also be able to contact the internet.
+
+1. Install the assembled ball in your lighting display. (Depending on the setup, this may include associating the Particle Photon to a new WiFi network. You should complete the WiFi association before installing the ball in its final location.)
+
