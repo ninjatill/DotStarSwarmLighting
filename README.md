@@ -1,6 +1,8 @@
 # DotStar Swarm Lighting
 Lighting objects made with "DotStar" LEDs which communicate with each other in a swarm.
 
+**_This entire project is a major work-in-progress. The DotStar Swarm ecosystem has much potential but is worked on as a hobby. If you would like to contribute, submit an issue or pull request. Thanks for your interest!_**
+
 ## Concept and Background
 This project was started with a desire to make a high-visual-impact decorations for use in public displays. The core component in all the display objects is the DotStar LED. DotStar is a name used by Adafruit for independently-addressable RBG LEDs using the APA102 chipset (2-wire SPI interface). A public display can have multiple DotStar objects which can be manipulated from a central controller over WiFi.
 
