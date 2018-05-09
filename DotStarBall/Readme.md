@@ -25,7 +25,7 @@ The first object designed for this swarm ecosystem is the DotStar Ball (DSB). Wh
 - [Particle Photon](https://www.particle.io/products/hardware/photon-wifi) ($20)
 - 10 Meters of SK9822 or APA102 LEDs, 60 Pixels/Meter, Silicone-Jacketed (IP67), Black Flex PCB (~$10/meter) from [Adafruit](https://www.adafruit.com/product/2239), [AliExpress](https://www.aliexpress.com/item/1m-5m-APA102-Smart-led-pixel-strip-Black-White-PCB-24-36-60-96-leds-pixels/32322326979.html?spm=2114.search0104.3.8.18da31a9f5sv0u&ws_ab_test=searchweb0_0,searchweb201602_1_10152_10151_10065_10344_10068_10130_10324_10342_10547_10325_10343_10546_10340_5722611_10548_10341_10545_10696_5722911_5722811_10084_5722711_10083_10618_10307_5711211_10059_308_100031_10103_10624_10623_10622_10621_10620_5711311_5722511,searchweb201603_2,ppcSwitch_2&algo_expid=6ef3fe06-63bb-41f2-b8bc-39bc1ad5b3ed-1&algo_pvid=6ef3fe06-63bb-41f2-b8bc-39bc1ad5b3ed&priceBeautifyAB=0)
   - Reels of LEDs should come with extra 4-Pin JST connectors for connecting the electronics PCB to the LED strip.
-- 3D-Printed Support Structure (~$48 for 2kg of PETG) (see the [readme](./stl/ReadMe.md) for more details.)
+- 3D-Printed Support Structure (~$48 for 2kg of PETG) (see the [readme](/DotStarBall/stl/readme.md) for more details.)
   - PETG 1.75mm Filament from [MakerGeeks](https://www.makergeeks.com/collections/maker-series-petg)
     - Choose appropriate filament for your 3D printer or have a 3D printing service manufacture the printed objects for you.
 - 5V, 40A Switching Power Supply ($25) from [Amazon](https://www.amazon.com/ALITOVE-Transformer-Converter-Security-Computer/dp/B077SYHQCJ/ref=sr_1_2?ie=UTF8&qid=1525871493&sr=8-2&keywords=5v+40a+power+supply)
