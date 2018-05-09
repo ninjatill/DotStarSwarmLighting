@@ -2,16 +2,20 @@
 All components were designed in [TinkerCad](https://www.tinkercad.com/#/) and printed on a [Prusa i3 Mk2](https://www.prusa3d.com/). Filament used was [MakerGeeks PETG](https://www.makergeeks.com/collections/maker-series-petg) at 255°C with a heated bed at 80°C. All .STL files were sliced on [Sli3er Prusa Edition](https://www.prusa3d.com/slic3r-prusa-edition/) 1.39.1 or better.
 
 ## Components
-1. **PSU Cylinder** (5 components)
+1. **Power Supply (PSU) Cylinder** (5 components)
    - This is the internal support structure for the DSB. The cylinder has an internal rectangular slot which accepts a 5V, 40A power supply. The cylinder is modular with 3 parts (top, mid, bottom). The parts are overlapping for an [IP 42 rating](https://en.wikipedia.org/wiki/IP_Code) (does not allow downward falling rain or snow within the enclosure.) 
+   - The PSU cylinder was designed to be modular for flexibility if createing a larger DSB. For example, I already designed a 500mm diameter ball. To accomodate the larger size, the top and bottom cylinders can be reused an only the mid cylinder needs to be modified, or more easily, add additional mid cylinder pieces to make up the additional length. The mid cylinder for the 250mm DSB is 150mm tall. To accomodate the 500mm DSB, you would need a total of 350mm's of mid cylinder; because it is a modular design, you use two 150mm cylinders and add an additional 50mm cylinder piece.
    - **Top Cylinder**
-     - Has 24 mounting holes for attaching LED arms with [#6-1/2" stainless steel self-tapping screws](https://www.fastenermart.com/SC165-1452.html).
+     - This top-most portion of the PSU cylinder has 24 mounting holes for attaching LED arms with [#6-1/2" stainless steel self-tapping screws](https://www.fastenermart.com/SC165-1452.html).
      - Recommended Print settings: .2mm layers, 5 solid layers top and bottom, 3 perimeters, 25% infill or more, supports off. Must be printed with the smaller diameter end touching the build plate.
    - **Mid Cylinder**
-     - Has mounting holes for a 30mm case fan. When installing a fan, you should install a small mesh screen between the fan and cylinder to give it the IP 42 rating. If a mesh screen is omitted, bugs and other particulates may infiltrate the cylinder. 
+     - 150mm w/ fan - This mid-span portion of the PSU cylinder has mounting holes for a 30mm case fan. When installing a fan, you should install a small mesh screen between the fan and cylinder to give it the IP 42 rating. If a mesh screen is omitted, bugs and other particulates may infiltrate the cylinder. 
+     - 150mm plain - This mid-span portion of the PSU does not have any holes for fans or other components. It is meant to be a modular portion for creating a larger DSB.
+     - 100mm plain - This mid-span portion of the PSU does not have any holes for fans or other components. It is meant to be a modular portion for creating a larger DSB.
+     - 50mm plain - This mid-span portion of the PSU does not have any holes for fans or other components. It is meant to be a modular portion for creating a larger DSB.
      - Recommended Print settings: .2mm layers, 5 solid layers top and bottom, 3 perimeters, 25% infill or more, supports off. Must be printed with the smaller diameter end touching the build plate.
    - **Bottom Cylinder**
-     - Has 24 mounting holes for attaching LED arms (same as top cylinder). Also has a large hole for power cable access. Although you may be able to touch the PSU from this access hole, you should install the power cables to the PSU before encasing the PSU in the cylinder.
+     - This bottom-most portion of the PSU cylinder has 24 mounting holes for attaching LED arms (same as top cylinder). Also has a large hole for power cable access. Although you may be able to touch the PSU from this access hole, you should install the power cables to the PSU before encasing the PSU in the cylinder.
      - Recommended Print settings: .2mm layers, 5 solid layers top and bottom, 3 perimeters, 25% infill or more, supports off. Must be printed with the smaller diameter end touching the build plate.
    - **Fan Shroud**
      - The fan shround should be mechanically fastened and then sealed to the cylinder to prevent water infiltration. The shroud must be sealed to the cylinder with silicone caulk (removable), epoxy (permanent), or other desired method.
