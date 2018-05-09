@@ -118,7 +118,7 @@ After cutting the LED reels into 23-pixel columns, I soldered them all together 
 
 ## Assembly
 1. Start by assembling the power supply. Install the main power feed and the LED strip power connections. You may want to run a functions check prior to encasing the power supply in the support structure; hookup the power supply, LED strip and electronics and run through some animations.
-2. Assemble the 3D printed objects. See the [readme](/DotStarBall/stl/README.me) in the stl folder for a detailed write up on just the 3D printed components.
+2. Assemble the 3D printed objects. See the [readme](/DotStarBall/stl/README.md) in the stl folder for a detailed write up on just the 3D printed components.
 3. Solder the LED strip together.
 4. Affix the LED strip to the support structure using clips. Start with the first strip and work your way around the ball.
 5. Connect the LED strip power connections to the power supply.
