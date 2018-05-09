@@ -55,4 +55,4 @@ Note: After printing the top cylinder, inspect the top-most solid surface for wa
 ### Early Prototypes
 
 ![Early Prototype - DSB Cylinder Exterior - in ABS](/DotStarBall/assets/DSB_EarlyPrototype_ABS_Exterior_500px.jpg)
-![Early Prototype - DSB Cylinder Interior - in ABS](/DotStarBall/assets/DSB_EarlyPrototype_ABS_Interior_500px.jpg)
+![Early Prototype - DSB Cylinder Interior - in ABS](/DotStarBall/assets/DSB_EarlyPrototype_ABS_Inside_500px.jpg)
