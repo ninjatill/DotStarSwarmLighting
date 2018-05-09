@@ -5,7 +5,7 @@ The first object designed for this swarm ecosystem is the DotStar Ball (DSB). Wh
 - has to receive external commands and display animations from that input,
 - has to be addressable individually or in groups.
 
-## Design Constraints
+#### Design Constraints
 - Anything I create has to live outdoors. It has to be designed to operate in Northeastern US weather (snow, rain, high-winds, etc.)
 - I knew I would be using DotStar LED strips. I used them for a previous project and found them easy to use and program. These strips optionally come with a silicone jacket with an IP67 rating which satisfies the weather issue. To keeps costs low and with a rough guestimate of the size of the sphere, I chose the version with 60 pixels/meter which would give me a pixel length of 16.67mm.
 - I have a 3D printer so I knew that I would most-likely design and print a custom support structure to keep it light and low cost. I have an original Prusa i3 Mk2 printer with maximum print dimensions 250x200x180mm.
