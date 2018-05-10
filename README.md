@@ -16,7 +16,7 @@ There are numerous components to the project including:
 - local swarm controller (device on the swarm network that sends commands to objects),
 - external swarm controller (server or cloud app where you can build animations and send them to the local controller or objects).
 
-## Elements with Documentation
+## Project Elements with Documentation
 
 - [Communication Structure](/CommunicationStructure.md)
 - [The DotStar Ball](/DotStarBall/README.md)
