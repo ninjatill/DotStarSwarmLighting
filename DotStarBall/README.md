@@ -60,46 +60,46 @@ Animations are pre-built for the light strip. Each animation is governed by the 
 
 The "M" mode command can trigger the following animations:
 
-0. Standby
-   - Runs the All Off animation once then waits for incomming commands. ~~If a duration is specified, the Photon will sleep for the specified duration.~~ (consider putting sleep-on-standby on roadmap).
-1. All Off
-   - Turns all LEDS off.
-2. Object On
-   - Turns on objects specified in the object array. 
-   - Defaults to "All" if no object array specified. Defaults to black (off) if no color array specified.
-   - Optional Parameters: A, C, O
+- (0) Standby
+  - Runs the All Off animation once then waits for incomming commands. ~~If a duration is specified, the Photon will sleep for the specified duration.~~ (consider putting sleep-on-standby on roadmap).
+- (1) All Off
+  - Turns all LEDS off.
+- (2) Object On
+  - Turns on objects specified in the object array. 
+  - Defaults to "All" if no object array specified. Defaults to black (off) if no color array specified.
+  - Optional Parameters: A, C, O
 
-11. Fade
-    - Fades from one color to the next. 
-    - The colors change slightly between the start and end color on each step advance. The amount of change is based on the number of steps (T) specified and the start and end colors. 
-    - If repeat (R) is specified, on each repeat, the next 2 color in the color array will be used. If there are more repeats than colors, the color array index will wrap around.
-      - For example, using this color array `"C":[0,255,65280,16711680]`
+- (11) Fade
+  - Fades from one color to the next. 
+  - The colors change slightly between the start and end color on each step advance. The amount of change is based on the number of steps (T) specified and the start and end colors. 
+  - If repeat (R) is specified, on each repeat, the next 2 color in the color array will be used. If there are more repeats than colors, the color array index will wrap around.
+    - For example, using this color array `"C":[0,255,65280,16711680]`
         1. On the first run the fade will go from 0 (black/off) to 255 (blue). 
         2. On the first repeat (2nd run), the fade will go from 255 (blue) to 65280 (green). 
         3. On the 2nd repeat (3rd run) the fade will go from 65280 (green) to 16711680 (red). 
         4. If there is a 3rd repeat (4th run) the start color will be 16711680 (red) and the end color will wrap around to the first color in the color array which is 0 (black/off). 
         5. If there is a 4th repeat (5th run), the fade will operate exactly as the first run.
-    - Alternate/Sub Modes
-      - Pulse - Fades up then fades down. Using this example `"M":11,"U":5000,"T":100,"R":1,"A":1,"C":[0,255,0]`, on the first run, the animation will start at color 0 (black/off) and ramp up to color 255 (blue) over 5 seconds and 100 steps (which is a pretty smooth transition). On the 2nd run, the animation will fade back to 0 (black off) over the same number of steps.
+  - Alternate/Sub Modes
+    - Pulse - Fades up then fades down. Using this example `"M":11,"U":5000,"T":100,"R":1,"A":1,"C":[0,255,0]`, on the first run, the animation will start at color 0 (black/off) and ramp up to color 255 (blue) over 5 seconds and 100 steps (which is a pretty smooth transition). On the 2nd run, the animation will fade back to 0 (black off) over the same number of steps.
       - Pulse with high/low hold - Fades to a color, stays on that color before fading to the next color. Using this example `"M":11,"U":5000,"T":100,"R":2,"A":1,"C":[0,255,255,0]`, on the first run, the animation will start at color 0 (black/off) and ramp up to color 255 (blue) over 5 seconds and 100 steps (which is a pretty smooth transition). On the 2nd run, the animation will stay at color 255 (blue) for 5 seconds. On the 3rd run, the animation will fade back to 0 (black off) over the same number of steps.
-    - Required Parameters: C
-    - Optional Parameters: O, R
+  - Required Parameters: C
+  - Optional Parameters: O, R
 
-12. Fill
-    - Fills the ball with a specified color in a sequential manner. Can be filled by columns, rows or pixels or any combination. The fill happens evenly over the course of the duration and steps. If only 1 steps (T) is specified, this would essentially work identical to Object On but in a much less efficient manner.
-    - The object array specifies the starting point for the fill operation. Multiple objects (even of differing types) can be specified.       - For example, using this object array `"O":["C0","C11","R0"]`, on the first step, columns 0 and 11 and row 0 will turn on. On the 2nd step, columns 1 and 12 and row 1 will turn on. On the 3rd step, columns 3 and 13 and row 3 will turn on. Etc.
-    - Example: `{"ABC":{"M":{"M":12,"U":1000,"T":24,"C":[255],"O":["C0"]}}}` fills the ball by columns over the period of 1 second. Each column will light sequentially starting with column 0 every 33ms until all columns are on.
-    - Alternate/Sub Modes
-      - Vertical Spin - The width parameter specifies the number of objects to keep on. Using this example `"O":["C0"],"I":0,"H":5`, the animation will keep 5 columns lit starting with column 0 and will spin in the clockwise direction.
-      - Twinkle - Twinkle is a random lighting of pixels. On each subsequent step, a number of pixels are exchanged (some turned off, some turned on). Use "I":254 (randomized direction) and "H":xxx (number of objects on) in conjunction for a twinkle effect. You can twinkle by column, row or pixel.
-    - Required Parameters: O, C
-    - Optional Parameters: A, I, H
+- (12) Fill
+  - Fills the ball with a specified color in a sequential manner. Can be filled by columns, rows or pixels or any combination. The fill happens evenly over the course of the duration and steps. If only 1 steps (T) is specified, this would essentially work identical to Object On but in a much less efficient manner.
+  - The object array specifies the starting point for the fill operation. Multiple objects (even of differing types) can be specified.       - For example, using this object array `"O":["C0","C11","R0"]`, on the first step, columns 0 and 11 and row 0 will turn on. On the 2nd step, columns 1 and 12 and row 1 will turn on. On the 3rd step, columns 3 and 13 and row 3 will turn on. Etc.
+  - Example: `{"ABC":{"M":{"M":12,"U":1000,"T":24,"C":[255],"O":["C0"]}}}` fills the ball by columns over the period of 1 second. Each column will light sequentially starting with column 0 every 33ms until all columns are on.
+  - Alternate/Sub Modes
+    - Vertical Spin - The width parameter specifies the number of objects to keep on. Using this example `"O":["C0"],"I":0,"H":5`, the animation will keep 5 columns lit starting with column 0 and will spin in the clockwise direction.
+    - Twinkle - Twinkle is a random lighting of pixels. On each subsequent step, a number of pixels are exchanged (some turned off, some turned on). Use "I":254 (randomized direction) and "H":xxx (number of objects on) in conjunction for a twinkle effect. You can twinkle by column, row or pixel.
+  - Required Parameters: O, C
+  - Optional Parameters: A, I, H
     
-13. Spin
-    - Spins either vertically or horizontally. A "spin" is a sequential lighting of objects in a particular direction. The Vertical spin is just a wrapper around the fill mode with a width. Spinning a single pixel (or group of pixels) or spinning horizontally (row spin) requires a custom routine.
+- (13) Spin
+  - Spins either vertically or horizontally. A "spin" is a sequential lighting of objects in a particular direction. The Vertical spin is just a wrapper around the fill mode with a width. Spinning a single pixel (or group of pixels) or spinning horizontally (row spin) requires a custom routine.
     
-14. Flash
-    - Flash starts with a solid color and then shows another color at full brightness for a very brief amount of time before returning to the original color.
+- (14) Flash
+  - Flash starts with a solid color and then shows another color at full brightness for a very brief amount of time before returning to the original color.
     
 ## Particle Photon Demonstration
 Makers who do not want to build the DSB may still benefit from some of the demonstrated methods on the Particle Photon platform including:
