@@ -1,5 +1,10 @@
 # DotStar Ball (aka. DotStar Sphere)
-The first object designed for this swarm ecosystem is the DotStar Ball (DSB). When I started designing this object, I used the some of these criteria:
+The first object designed for this swarm ecosystem is the DotStar Ball (DSB). 
+
+//Add animated gif or video...
+
+#### Design Criteria
+When I started designing this object, I used the some of these criteria:
 - had to be large enough to have a visual impact hanging on a large tree branch,
 - had to be (relatively) low cost since I had to make many of them,
 - has to receive external commands and display animations from that input,
@@ -12,6 +17,15 @@ The first object designed for this swarm ecosystem is the DotStar Ball (DSB). Wh
 - I knew I would be using DotStar LED strips. I used them for a previous project and found them easy to use and program. These strips optionally come with a silicone jacket with an IP67 rating which satisfies the weather issue. To keeps costs low and with a rough guestimate of the size of the sphere, I chose the version with 60 pixels/meter which would give me a pixel length of 16.67mm.
 - I have a 3D printer so I knew that I would most-likely design and print a custom support structure to keep it light and low cost. I have an original Prusa i3 Mk2 printer with maximum print dimensions 250x200x180mm.
 - I wanted the electronics to be accessible without completely disassembling the ball. Also, for best WiFi reception, the electronics should be located on the under-side of the ball.
+
+## Particle Photon Demonstration
+Makers who do not want to build the DSB may still benefit from some of the demonstrated methods on the Particle Photon platform including:
+- parsing JSON strings on the IoT hardware,
+- receiving and parsing variables sent via JSON where the JSON payload contains a varying number of variables,
+- using a single Particle cloud subscription to address multiple devices, filtering commands by a target address,
+- using the built in Log functionality, sending logs to an external service such as papertrailapp.com,
+- using classes for object-oriented programming on IoT devices,
+- using both UDP and particle cloud functions to receive commands.
 
 ## Roadmap (To Do Features) (In _Loose_ Order of Priority)
 - Add firmware features (sleep, report status to controller, etc.)
@@ -68,6 +82,8 @@ The "M" mode command can trigger the following animations:
   - Turns on objects specified in the object array. 
   - Defaults to "All" if no object array specified. Defaults to black (off) if no color array specified.
   - Optional Parameters: A, C, O
+  
+  //Add animated gif or video...
 
 - (11) Fade
   - Fades from one color to the next. 
@@ -84,6 +100,8 @@ The "M" mode command can trigger the following animations:
       - Pulse with high/low hold - Fades to a color, stays on that color before fading to the next color. Using this example `"M":11,"U":5000,"T":100,"R":2,"A":1,"C":[0,255,255,0]`, on the first run, the animation will start at color 0 (black/off) and ramp up to color 255 (blue) over 5 seconds and 100 steps (which is a pretty smooth transition). On the 2nd run, the animation will stay at color 255 (blue) for 5 seconds. On the 3rd run, the animation will fade back to 0 (black off) over the same number of steps.
   - Required Parameters: C
   - Optional Parameters: O, R
+  
+  //Add animated gif or video...
 
 - (12) Fill
   - Fills the ball with a specified color in a sequential manner. Can be filled by columns, rows or pixels or any combination. The fill happens evenly over the course of the duration and steps. If only 1 steps (T) is specified, this would essentially work identical to Object On but in a much less efficient manner.
@@ -95,20 +113,19 @@ The "M" mode command can trigger the following animations:
   - Required Parameters: O, C
   - Optional Parameters: A, I, H
     
+  //Add animated gif or video...
+  
 - (13) Spin
   - Spins either vertically or horizontally. A "spin" is a sequential lighting of objects in a particular direction. The Vertical spin is just a wrapper around the fill mode with a width. Spinning a single pixel (or group of pixels) or spinning horizontally (row spin) requires a custom routine.
+  
+  //Finish coding...
+  //Add animated gif or video...
     
 - (14) Flash
   - Flash starts with a solid color and then shows another color at full brightness for a very brief amount of time before returning to the original color.
-    
-## Particle Photon Demonstration
-Makers who do not want to build the DSB may still benefit from some of the demonstrated methods on the Particle Photon platform including:
-- parsing JSON strings on the IoT hardware,
-- receiving and parsing variables sent via JSON where the JSON payload contains a varying number of variables,
-- using a single Particle cloud subscription to address multiple devices, filtering commands by a target address,
-- using the built in Log functionality, sending logs to an external service such as papertrailapp.com,
-- using classes for object-oriented programming on IoT devices,
-- using both UDP and particle cloud functions to receive commands.
+  
+  //Finish coding...
+  //Add animated gif or video...
     
 ## Design Walkthrough  
 My first CAD iterations used a solid spherical shell with LEDS in horizontal rows and parallel to the ground. In order to make animations easy to design in software, I knew it would be best to use the same number of LEDs in each row/column. Once I saw the first design in TinkerCad.com, I knew I would have problems laying the flat ribbons horizontally as they would not conform to the sphere well. When horizontal, each strip would be a different length and my sphere might start to look like a stepped cylinder rather than a sphere. Then I started to lay them out in a vertical orientation. This was a much better design as the strips could all be uniform in length. Since the max dimension of the 3D printer is 250mm, that was my starting sphere radius but I could only print half a sphere. Each vertical "arm" was rotated around the z-axis in order to create the sphere. I chose to include 24 verticals to have a fairly dense pixel spacing. All in, that would be 23 pixels * 24 strips = 552 pixels. 
