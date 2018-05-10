@@ -10,7 +10,7 @@ Why create this stuff? The inspiration came from a giant, 50+ foot-tall oak tree
 
 ## Major Project Components
 There are numerous components to the project including:
-- lighting objects (sphere, garland, etc.),
+- lighting objects (ball/sphere/cylinder, chain, etc.),
 
 **_Not Yet Implemented_**
 - local swarm controller (device on the swarm network that sends commands to objects),
