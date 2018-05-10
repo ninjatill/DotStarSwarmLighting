@@ -52,6 +52,11 @@ Note: After printing the top cylinder, inspect the top-most solid surface for wa
 
 ## Images
 
+### 3D Renders (Tinkercad)
+
+![3D Render - Top View](/DotStarBall/assets/DSB_3DRender_Top.PNG)
+![3D Render - Bottom View](/DotStarBall/assets/DSB_3DRender_Bottom.PNG)
+
 ### Early Prototypes
 
 ![Early Prototype - DSB Cylinder Exterior - in ABS](/DotStarBall/assets/DSB_EarlyPrototype_ABS_Exterior_500px.jpg)
