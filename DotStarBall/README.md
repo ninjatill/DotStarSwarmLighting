@@ -3,7 +3,9 @@ The first object designed for this swarm ecosystem is the DotStar Ball (DSB). Wh
 - had to be large enough to have a visual impact hanging on a large tree branch,
 - had to be (relatively) low cost since I had to make many of them,
 - has to receive external commands and display animations from that input,
-- has to be addressable individually or in groups.
+  - commands should request a particular effect or animation as opposed to addressing individual pixels,
+- has to be addressable individually or in groups,
+- has to function autonomously after receiving commands (similar to how the DotStar APA102 chipset functions).
 
 #### Design Constraints
 - Anything I create has to live outdoors. It has to be designed to operate in Northeastern US weather (snow, rain, high-winds, etc.)
@@ -39,7 +41,7 @@ The first object designed for this swarm ecosystem is the DotStar Ball (DSB). Wh
 ## Similar Designs
 I mostly had the support structure designed and fabricated prior to doing any kind of search for a similar idea or concept. I did find a few similar designs out there but none that fit my exact requirements. Most were stand-alone objects and higher in cost to fabricate. Here's a brief comparison:
 - [Spherical LED Matrix](http://www.instructables.com/id/Spherical-LED-Matrix-Sphere-Shaped-LED-Screen-From/) This project is most closely related to what I'm trying to do. The maker used a metal support structure and oriented the pixel strips in a horizontal manner (which I found to be an unfavorable design.) The maker hides the non-uniform LED positioning by enclosing the entire structure in a translucent shell.
-  - This design differs from the DSB in that the DSB is smaller, lighter, and WiFi enabled. Both projects are similarly (proportionally) priced. Additionally, this design uses specialized hardware and uses non-wireless communication protocols/hardware such as USB or DMX-512. It is not addressable in a swarm but could be modified to do so.
+  - This design differs from the DSB in that the DSB is smaller, lighter, and WiFi enabled. Both projects are similarly (proportionally) priced. Additionally, this design uses specialized hardware and uses non-wireless communication protocols/hardware such as USB or DMX-512. It is not addressable in a swarm but could be modified to do so. The device cannot function on its own but rather takes constant input from a software controller; while this doesn't meet my design goals, use of off-the-shelf software means that more animations and effects are available without custom programming.
 - [Giant LED Disco Ball](https://blog.hackster.io/get-the-party-started-with-this-giant-led-disco-ball-cd776451e3c0) This is a well designed project that used custom-printed PCBs to create a geodesic sphere. Each PCB housed a few Neopixels. The design is meant to be mobile and run off of large LiPo batteries.
   - This design differs from the DSB in that the DSB is smaller, lighter, cheaper to fabricate and WiFi enabled. It is not addressable in a swarm but could be modified to do so.
 - [Neopixel LED EyeBall](https://www.hackster.io/H0meMadeGarbage/neopixel-led-eyeball-8da098)
@@ -59,13 +61,13 @@ Animations are pre-built for the light strip. Each animation is governed by the 
 The "M" mode command can trigger the following animations:
 
 0. Standby
-   - Runs the All Off animation once then waits for incomming commands. ~~If a duration is specified, the Photon will sleep for the specified duration.~~ (consider puttin sleep on roadmap).
+   - Runs the All Off animation once then waits for incomming commands. ~~If a duration is specified, the Photon will sleep for the specified duration.~~ (consider putting sleep-on-standby on roadmap).
 1. All Off
-   - Turns all LEDS repeatedly.
+   - Turns all LEDS off.
 2. Object On
    - Turns on objects specified in the object array. 
    - Defaults to "All" if no object array specified. Defaults to black (off) if no color array specified.
-   - Optional Parameters: A, C, O, 
+   - Optional Parameters: A, C, O
 
 11. Fade
     - Fades from one color to the next. 
@@ -84,8 +86,9 @@ The "M" mode command can trigger the following animations:
     - Optional Parameters: O, R
 
 12. Fill
-    - Fills the ball with a specified color.
+    - Fills the ball with a specified color in a sequential manner. Can be filled by columns, rows or pixels or any combination. The fill happens evenly over the course of the duration and steps. If only 1 steps (T) is specified, this would essentially work identical to Object On but in a much less efficient manner.
     - The object array specifies the starting point for the fill operation. Multiple objects (even of differing types) can be specified.       - For example, using this object array `"O":["C0","C11","R0"]`, on the first step, columns 0 and 11 and row 0 will turn on. On the 2nd step, columns 1 and 12 and row 1 will turn on. On the 3rd step, columns 3 and 13 and row 3 will turn on. Etc.
+    - Example: `{"ABC":{"M":{"M":12,"U":1000,"T":24,"C":[255],"O":["C0"]}}}` fills the ball by columns over the period of 1 second. Each column will light sequentially starting with column 0 every 33ms until all columns are on.
     - Alternate/Sub Modes
       - Vertical Spin - The width parameter specifies the number of objects to keep on. Using this example `"O":["C0"],"I":0,"H":5`, the animation will keep 5 columns lit starting with column 0 and will spin in the clockwise direction.
       - Twinkle - Twinkle is a random lighting of pixels. On each subsequent step, a number of pixels are exchanged (some turned off, some turned on). Use "I":254 (randomized direction) and "H":xxx (number of objects on) in conjunction for a twinkle effect. You can twinkle by column, row or pixel.
