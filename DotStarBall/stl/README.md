@@ -10,10 +10,11 @@ All components were designed in [TinkerCad](https://www.tinkercad.com/#/) and pr
      - Recommended Print settings: .2mm layers, 5 solid layers top and bottom, 3 perimeters, 25% infill or more, supports off. Must be printed with the smaller diameter end touching the build plate.
    - **Mid Cylinder**
      - Note: Cylinder pieces are labeled with actual length which is 10mm more than the length contributed to the overall PSU cylinder. There is a 10mm overlap with other pieces which provides the weather-proof design.
-     - 160mm w/ fan - This mid-span portion of the PSU cylinder has mounting holes for a 30mm case fan. When installing a fan, you should install a small mesh screen between the fan and cylinder to give it the IP 42 rating. If a mesh screen is omitted, bugs and other particulates may infiltrate the cylinder. 
-     - 160mm plain - This mid-span portion of the PSU does not have any holes for fans or other components. It is meant to be a modular portion for creating a larger DSB.
-     - 110mm plain - This mid-span portion of the PSU does not have any holes for fans or other components. It is meant to be a modular portion for creating a larger DSB.
-     - 60mm plain - This mid-span portion of the PSU does not have any holes for fans or other components. It is meant to be a modular portion for creating a larger DSB.
+     - 160mm w/ fan - This mid-span portion of the PSU cylinder has mounting holes for a 30mm case fan. It is meant to be a modular piece for creating a larger DSB. When installing a fan, you should install a small mesh screen between the fan and cylinder to give it the IP 42 rating. If a mesh screen is omitted, bugs and other particulates may infiltrate the cylinder. 
+     - 160mm plain - This mid-span portion of the PSU does not have any holes for fans or other components. It is meant to be a modular piece for creating a larger DSB.
+     - 110mm w/ fan - This mid-span portion of the PSU has mounting holes for a 30mm case fan. It is meant to be a modular piece for creating a larger DSB. When installing a fan, you should install a small mesh screen between the fan and cylinder to give it the IP 42 rating. If a mesh screen is omitted, bugs and other particulates may infiltrate the cylinder. 
+     - 110mm plain - This mid-span portion of the PSU does not have any holes for fans or other components. It is meant to be a modular piece for creating a larger DSB.
+     - 60mm plain - This mid-span portion of the PSU does not have any holes for fans or other components. It is meant to be a modular piece for creating a larger DSB.
      - Recommended Print settings: .2mm layers, 5 solid layers top and bottom, 3 perimeters, 25% infill or more, supports off. Must be printed with the smaller diameter end touching the build plate.
    - **Bottom Cylinder**
      - This bottom-most portion of the PSU cylinder has 24 mounting holes for attaching LED arms (same as top cylinder). Also has a large hole for power cable access. Although you may be able to touch the PSU from this access hole, you should install the power cables to the PSU before encasing the PSU in the cylinder.
