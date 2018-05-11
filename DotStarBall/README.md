@@ -1,5 +1,5 @@
 # DotStar Ball (aka. DotStar Sphere)
-The first object designed for this swarm ecosystem is the DotStar Ball (DSB). 
+The first object designed for this swarm ecosystem is the DotStar Ball (DSB). See the [DotStar Swarm Lighting readme](/README.md) for a full overview of what this project is all about.
 
 //Add animated gif or video...
 
