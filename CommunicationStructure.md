@@ -105,13 +105,17 @@ Note: Duration (D) is divided by Steps (T) to calculate the refresh rate of the 
 - "D" - Start Delay - unsigned long
   - Number of miliseconds to delay before starting the animation. Delay can be used to coordinate "moving sequences" across members of the swarm.
   - Example: `"D":20` for a 20 milisecond delay before starting command.
-- "H" - Width/Tail - int
+- "F" - Fade Size - int
+  - Number of elements to fade in animations such as spin, twinkle, rain, etc.
+- "H" - Width - int
   - Specifies the width of an animation. Has different meaning depending on the animation; see animation description.
   - Example: `"H":5`
 - "I" - Direction of Animation - uint8_t
   - Used for directional animations (spin, fill, etc.) to specify the direction of advance (when viewed from above). 
   - Values: 0 = CW/Up, 1 = CCW/Down, 2 = CW reverse on Step, 3 = CCW reverse on Step, 4 = CW reverse on Repeat, 5 = CCW reverse on Repeat, ... 254 = Randomize
   - Example: `"I":1` for Counter-Clockwise/Down direction.
+- "L" - Tail Size - int
+  - Size of the tail of the animation. ?!? needed ?!?
 - "O" - Object Array - Array of Strings
   - An object can be a column (C) or row (R) of pixels or a single pixel (P). To explicity address all pixels, use "A" with any index (i.e. "A0"). String format should be `"[char for obj type][uint_16 for obj index]"`. The object index is zero-based.
   - Example: `"O":["C20","R8","P55"]` for Column 20, Row 8 and Pixel 55.
