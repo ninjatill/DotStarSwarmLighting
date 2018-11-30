@@ -66,9 +66,9 @@ p  A |     /     \         p  A |     /     \
      __________________         __________________
         A  B  C  D  E              A  B  C  D  E
 	
-      Horizontal Group          Horizontal Group
+      Horizontal Group           Horizontal Group
 
-       Major Group A               Major Group B
+        Major Group A              Major Group B
 ```
 
 ## Command Types
