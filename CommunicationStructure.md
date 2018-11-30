@@ -54,11 +54,11 @@ Each DSS device is assigned a "Swarm ID" (SID) which is a string of alphanumeric
 ```txt
             Tree 1                     Tree 2
 
-H  E |       ***           H  E |       ***
-o    |    **     **        o    |    **     **
+V  E |       ***           V  E |       ***
+e    |    **     **        e    |    **     **
 r  D |   *         *       r  D |   *         *
-i    |   *         *       i    |   *         *
-z  C |    **     **        z  C |    **     ** 
+t    |   *         *       t    |   *         *
+   C |    **     **           C |    **     ** 
      |      |   |               |      |   |
 G  B |      |   |          G  B |      |   |
 r    |      |   |          r    |      |   |
@@ -66,7 +66,7 @@ p  A |     /     \         p  A |     /     \
      __________________         __________________
         A  B  C  D  E              A  B  C  D  E
 	
-       Vertical Group             Vertical Group
+      Horizontal Group          Horizontal Group
 
        Major Group A               Major Group B
 ```
