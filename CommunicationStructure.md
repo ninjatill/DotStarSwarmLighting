@@ -52,19 +52,23 @@ Each DSS device is assigned a "Swarm ID" (SID) which is a string of alphanumeric
 - To expand on the example above, if you had multiple trees in your yard and wanted to rapidly light those trees in sequence, then the devices in each tree would be assigned a different major swarm group. To target the first tree use `"A--"`, second tree `"B--"`, etc.
 
 ```txt
-H  E |       ***
-o    |    **     **
-r  D |   *         *
-i    |   *         *
-z  C |    **     ** 
-     |      |   |
-G  B |      |   |
-r    |      |   |
-p  A |     /     \
-     __________________
-        A  B  C  D  E
+            Tree 1                     Tree 2
+
+H  E |       ***           H  E |       ***
+o    |    **     **        o    |    **     **
+r  D |   *         *       r  D |   *         *
+i    |   *         *       i    |   *         *
+z  C |    **     **        z  C |    **     ** 
+     |      |   |               |      |   |
+G  B |      |   |          G  B |      |   |
+r    |      |   |          r    |      |   |
+p  A |     /     \         p  A |     /     \
+     __________________         __________________
+        A  B  C  D  E              A  B  C  D  E
 	
-       Vertical Group
+       Vertical Group             Vertical Group
+
+       Major Group A               Major Group B
 ```
 
 ## Command Types
