@@ -51,6 +51,22 @@ Each DSS device is assigned a "Swarm ID" (SID) which is a string of alphanumeric
 - For example, imagine multiple DSS devices in a tree. If you wanted to run an animation where the devices rapidly lit from bottom to top, you could group all the devices in the tree by assinging them to major swarm group "A". In this scenario, the horizontal grouping is inconsequential so you could use the wildcard character "-". And for the vertical grouping, the bottom most device would be in vertical group "A", next device up would be in vertical group "B", next device up would be in veritical group "C", etc. When you design the animation you would send an "all on" mode command to each SID with a slightly larger delay parameter for each. Example SIDs: `"A-A"`, `"A-B"`, `"A-C"`. See the example "Sequential Rapid Lighting" for a working example.
 - To expand on the example above, if you had multiple trees in your yard and wanted to rapidly light those trees in sequence, then the devices in each tree would be assigned a different major swarm group. To target the first tree use `"A--"`, second tree `"B--"`, etc.
 
+```txt
+H  E |       ***
+o    |    **     **
+r  D |   *         *
+i    |   *         *
+z  C |    **     ** 
+     |      |   |
+G  B |      |   |
+r    |      |   |
+p  A |     /     \
+     __________________
+        A  B  C  D  E
+	
+       Vertical Group
+```
+
 ## Command Types
 When sent individually, these are referred to as a "command". When sent as part of a sequence, then it is a "command element".
 - "M" - Mode commands contain parameters for setting up and running an animation.
